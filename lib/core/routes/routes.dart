@@ -11,7 +11,7 @@ import 'package:zyntra/features/welcome/welcome_view.dart';
 
 class AppRouter {
   static final GoRouter router = GoRouter(
-    initialLocation: EndPoints.welcomeView,
+    initialLocation: EndPoints.homeView,
     routes: [
       // Welcome Screen Route
       GoRoute(

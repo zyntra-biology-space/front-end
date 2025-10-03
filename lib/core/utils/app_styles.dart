@@ -4,8 +4,8 @@ import 'package:zyntra/core/utils/app_colors.dart';
 
 abstract class AppStyles {
   static const fontFamily = 'Cairo';
-  static const textHeight = 1.2;
-  static const letterSpacing = 1.5;
+  static const textHeight = 1.3;
+  static const letterSpacing = 1.6;
 
   // Styles 14
   static TextStyle styleRegular14(BuildContext context) {

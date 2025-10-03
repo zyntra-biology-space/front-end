@@ -7,13 +7,13 @@ void main() {
   setupServiceLocator();
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    DevicePreview(
-      enabled: true,
-      builder: (context) {
-        return const MyApp();
-      },
-    ),
-    // const MyApp(),
+    // DevicePreview(
+    //   enabled: true,
+    //   builder: (context) {
+    //     return const MyApp();
+    //   },
+    // ),
+    const MyApp(),
   );
 }
 
