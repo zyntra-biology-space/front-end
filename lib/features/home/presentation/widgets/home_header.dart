@@ -17,7 +17,7 @@ class _HomeHeaderState extends State<HomeHeader> {
   final List<_NavItem> _navItems = [
     _NavItem(title: "Resources", icon: Icons.folder_outlined),
     _NavItem(title: "Asky AI", icon: Icons.smart_toy_outlined),
-    _NavItem(title: "Library", icon: Icons.library_books_outlined),
+    _NavItem(title: "Home", icon: Icons.library_books_outlined),
   ];
 
   @override
@@ -82,8 +82,10 @@ class _HomeHeaderState extends State<HomeHeader> {
               GoRouter.of(context).push(EndPoints.resourcesView);
               break;
             case 1:
+              GoRouter.of(context).push(EndPoints.askyView);
               break;
             case 2:
+              GoRouter.of(context).push(EndPoints.homeView);
               break;
           }
         },

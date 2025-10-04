@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zyntra/core/utils/app_assets.dart';
 import 'package:zyntra/core/utils/app_colors.dart';
 import 'package:zyntra/features/resources/presentation/widgets/resources_header/resources_header_logo.dart';
 import 'package:zyntra/features/resources/presentation/widgets/resources_header/resources_header_tabs.dart';

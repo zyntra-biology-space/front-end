@@ -1,19 +1,23 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zyntra/core/routes/routes.dart';
 import 'package:zyntra/core/services/services_locator.dart';
+import 'package:zyntra/features/asky/data/cubits/asky_cubit.dart';
+import 'package:zyntra/features/asky/data/repos/asky_repo_imp.dart';
 
 void main() {
   setupServiceLocator();
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
-    // DevicePreview(
-    //   enabled: true,
-    //   builder: (context) {
-    //     return const MyApp();
-    //   },
-    // ),
-    const MyApp(),
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AskyCubit(askyRepoImp: getIt.get<AskyRepoImp>()),
+        ),
+      ],
+      child: const MyApp(),
+    ),
   );
 }
 

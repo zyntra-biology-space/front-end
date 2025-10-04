@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:zyntra/core/routes/end_points.dart';
 import 'package:zyntra/core/utils/app_colors.dart';
 import 'package:zyntra/core/utils/app_styles.dart';
-
-class ResourcesViewHeader extends StatelessWidget {
-  const ResourcesViewHeader({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(children: [ResourcesHeaderTabs()]);
-  }
-}
 
 class ResourcesHeaderTabs extends StatefulWidget {
   final int selectedIndex;
@@ -29,12 +22,26 @@ class _ResourcesHeaderTabsState extends State<ResourcesHeaderTabs> {
     selectedIndex = widget.selectedIndex;
   }
 
+  void _goToView(int index) {
+    switch (index) {
+      case 0:
+        GoRouter.of(context).push(EndPoints.resourcesView);
+        break;
+      case 1:
+        GoRouter.of(context).push(EndPoints.askyView);
+        break;
+      case 2:
+        GoRouter.of(context).push(EndPoints.homeView);
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final tabs = [
       {'title': 'All Resources', 'icon': Icons.grid_view_rounded},
-      {'title': 'Articles', 'icon': Icons.description_outlined},
-      {'title': 'Videos', 'icon': Icons.play_circle_outline},
+      {'title': 'Asky AI', 'icon': Icons.play_circle_rounded},
+      {'title': 'Home', 'icon': Icons.description_outlined},
     ];
 
     return Row(
@@ -48,6 +55,7 @@ class _ResourcesHeaderTabsState extends State<ResourcesHeaderTabs> {
             setState(() {
               selectedIndex = index;
             });
+            _goToView(selectedIndex);
           },
         ),
       ),

@@ -1,10 +1,6 @@
 abstract class ApiEndpoints {
-  static const String login = '/auth/login';
-  static const String socialLogin = '/auth/social-login';
-  static const String signup = '/auth/signup';
-  static const String verifyOtp = '/auth/verify-otp';
-  static const String completeSignup = '/auth/complete-profile';
-  static const String doshPricesCurrent = '/dosh/prices/current';
-  static const String doshPricesHistory = '/dosh/prices/history';
-  static const String doshTypesData = '/dosh/types';
+  static const String askZyntra = '/ask';
+  static const String getArticles = '/articles';
+  static const String getArticleById = '/articles/{pmc_id}';
+  static const String getArticleMindMap = '/articles/{pmc_id}/mindmap';
 }

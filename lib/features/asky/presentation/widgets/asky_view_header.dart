@@ -3,10 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:zyntra/core/routes/end_points.dart';
 import 'package:zyntra/core/utils/app_assets.dart';
 import 'package:zyntra/core/utils/app_colors.dart';
-import 'package:zyntra/features/resource_info/presentation/widgets/resource_info_header_tabs.dart';
+import 'package:zyntra/features/resources/presentation/widgets/resources_header/resources_header_tabs.dart';
 
-class ResourcesViewHeader extends StatelessWidget {
-  const ResourcesViewHeader({super.key});
+class AskyViewHeader extends StatelessWidget {
+  const AskyViewHeader({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class ResourcesViewHeader extends StatelessWidget {
             flex: 2,
             child: FittedBox(
               fit: BoxFit.scaleDown,
-              child: ResourceInfoHeaderTabs(selectedIndex: 0),
+              child: ResourcesHeaderTabs(selectedIndex: 1),
             ),
           ),
           Expanded(

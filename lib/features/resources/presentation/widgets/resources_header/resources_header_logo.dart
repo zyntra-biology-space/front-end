@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:zyntra/core/routes/end_points.dart';
 import 'package:zyntra/core/utils/app_assets.dart';
 import 'package:zyntra/features/resources/presentation/widgets/resources_header/resources_header_search.dart';
 
@@ -21,7 +23,16 @@ class ResourcesHeaderLogo extends StatelessWidget {
           ),
           const SizedBox(width: 32),
           // Logo with fixed size
-          Image.asset(AppAssets.zyntraLogo, height: 60, fit: BoxFit.contain),
+          GestureDetector(
+            onTap: () {
+              GoRouter.of(context).pushReplacement(EndPoints.homeView);
+            },
+            child: Image.asset(
+              AppAssets.zyntraLogo,
+              height: 60,
+              fit: BoxFit.contain,
+            ),
+          ),
         ],
       ),
     );
