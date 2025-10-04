@@ -4,7 +4,7 @@ import 'package:zyntra/core/utils/app_colors.dart';
 
 abstract class AppStyles {
   static const fontFamily = 'Cairo';
-  static const textHeight = 1.3;
+  static const textHeight = 1.5;
   static const letterSpacing = 1.6;
 
   // Styles 14
@@ -247,6 +247,51 @@ abstract class AppStyles {
   static TextStyle styleBold24(BuildContext context) {
     return TextStyle(
       fontSize: getResponsiveFontSize(context, fontSize: 24),
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w700,
+      height: textHeight,
+      color: AppColors.primaryTextColor,
+      letterSpacing: letterSpacing,
+    );
+  }
+
+  // Styles 28
+  static TextStyle styleRegular28(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 28),
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w400,
+      height: textHeight,
+      color: AppColors.primaryTextColor,
+      letterSpacing: letterSpacing,
+    );
+  }
+
+  static TextStyle styleMedium28(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 28),
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w500,
+      height: textHeight,
+      color: AppColors.primaryTextColor,
+      letterSpacing: letterSpacing,
+    );
+  }
+
+  static TextStyle styleSemiBold28(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 28),
+      fontFamily: fontFamily,
+      fontWeight: FontWeight.w600,
+      height: textHeight,
+      color: AppColors.primaryTextColor,
+      letterSpacing: letterSpacing,
+    );
+  }
+
+  static TextStyle styleBold28(BuildContext context) {
+    return TextStyle(
+      fontSize: getResponsiveFontSize(context, fontSize: 28),
       fontFamily: fontFamily,
       fontWeight: FontWeight.w700,
       height: textHeight,

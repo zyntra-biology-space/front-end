@@ -1,0 +1,122 @@
+import 'package:flutter/material.dart';
+import 'package:zyntra/core/utils/app_colors.dart';
+import 'package:zyntra/core/utils/app_styles.dart';
+
+class ResourceInfoHeaderTabs extends StatelessWidget {
+  const ResourceInfoHeaderTabs({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(children: [ResourcesHeaderTabs()]);
+  }
+}
+
+class ResourcesHeaderTabs extends StatefulWidget {
+  final int selectedIndex;
+
+  const ResourcesHeaderTabs({super.key, this.selectedIndex = 0});
+
+  @override
+  State<ResourcesHeaderTabs> createState() => _ResourcesHeaderTabsState();
+}
+
+class _ResourcesHeaderTabsState extends State<ResourcesHeaderTabs> {
+  late int selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    selectedIndex = widget.selectedIndex;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final tabs = [
+      {'title': 'All Resources', 'icon': Icons.grid_view_rounded},
+      {'title': 'Articles', 'icon': Icons.description_outlined},
+      {'title': 'Videos', 'icon': Icons.play_circle_outline},
+    ];
+
+    return Row(
+      children: List.generate(
+        tabs.length,
+        (index) => HeaderTab(
+          title: tabs[index]['title'] as String,
+          icon: tabs[index]['icon'] as IconData,
+          isSelected: selectedIndex == index,
+          onTap: () {
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+        ),
+      ),
+    );
+  }
+}
+
+class HeaderTab extends StatelessWidget {
+  final String title;
+  final IconData icon;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const HeaderTab({
+    super.key,
+    required this.title,
+    required this.icon,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 16.0),
+      child: GestureDetector(
+        onTap: onTap,
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 200),
+                child: Icon(
+                  icon,
+                  key: ValueKey(isSelected),
+                  size: 22,
+                  color: isSelected ? AppColors.primaryColor : Colors.white,
+                ),
+              ),
+              const SizedBox(width: 10),
+              Text(
+                title,
+                style: AppStyles.styleSemiBold22(context).copyWith(
+                  fontSize: 17,
+                  color: isSelected ? AppColors.primaryColor : Colors.white,
+                  fontWeight: isSelected ? FontWeight.bold : FontWeight.w600,
+                ),
+              ),
+              const SizedBox(width: 8),
+              AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                transitionBuilder: (child, animation) {
+                  return RotationTransition(turns: animation, child: child);
+                },
+                child: Icon(
+                  isSelected
+                      ? Icons.keyboard_arrow_down_rounded
+                      : Icons.arrow_forward_ios_rounded,
+                  key: ValueKey(isSelected),
+                  size: 18,
+                  color: isSelected ? AppColors.primaryColor : Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

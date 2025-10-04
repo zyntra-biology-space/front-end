@@ -5,9 +5,9 @@ import 'package:zyntra/core/utils/app_assets.dart';
 import 'package:zyntra/core/utils/app_colors.dart';
 import 'package:zyntra/core/utils/app_styles.dart';
 
-class ResourceCard extends StatelessWidget {
+class ResourcesInfoCard extends StatelessWidget {
   final VoidCallback? onOpenPressed;
-  const ResourceCard({super.key, this.onOpenPressed});
+  const ResourcesInfoCard({super.key, this.onOpenPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +16,8 @@ class ResourceCard extends StatelessWidget {
       children: [
         // Main container with content
         Container(
+          // width: 240,
+          width: double.infinity,
           margin: const EdgeInsets.only(top: 80), // Space for overlapping image
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(24),
@@ -33,51 +35,14 @@ class ResourceCard extends StatelessWidget {
             ],
           ),
           child: Padding(
-            padding: const EdgeInsets.only(left: 15.0, right: 15, top: 140),
+            padding: const EdgeInsets.only(left: 15.0, right: 15, top: 200),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
                 const SizedBox(height: 15.0),
-                // File name
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      child: Text(
-                        "File Name",
-                        style: AppStyles.styleBold24(
-                          context,
-                        ).copyWith(color: Colors.white),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    SizedBox(width: 6.0),
-                    Icon(Icons.bookmark_border, color: Colors.white, size: 28),
-                  ],
-                ),
-                SizedBox(height: 8.0),
-                // Publisher
-                Text(
-                  "publisher",
-                  style: AppStyles.styleMedium18(context).copyWith(
-                    color: Colors.white.withOpacity(0.9),
-                    fontSize: 16,
-                  ),
-                ),
-                const SizedBox(height: 8.0),
-                // Date
-                Text(
-                  "date / /",
-                  style: AppStyles.styleMedium18(context).copyWith(
-                    color: Colors.white.withOpacity(0.7),
-                    fontSize: 14,
-                  ),
-                ),
                 const SizedBox(height: 20.0),
-                // Open button
+                // Review button
                 OutlinedButton(
                   onPressed: () {
                     GoRouter.of(context).push(EndPoints.resourceInfoView);
@@ -89,7 +54,7 @@ class ResourceCard extends StatelessWidget {
                     padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
                   ),
                   child: Text(
-                    "OPEN",
+                    "REVIEW",
                     style: AppStyles.styleSemiBold18(
                       context,
                     ).copyWith(color: Colors.white, letterSpacing: 1.5),
@@ -103,10 +68,10 @@ class ResourceCard extends StatelessWidget {
         // Overlapping image at top
         Positioned(
           top: 40,
-          left: 15,
-          right: 15,
+          left: 10,
+          right: 10,
           child: Container(
-            height: 180,
+            height: 260,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               boxShadow: [
